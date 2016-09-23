@@ -67,23 +67,22 @@ initTower_1:
  		
  		addi $sp, $sp, -20		#mover apuntador del stack
  
- move_disc:	add $t6, $a1, 28
- 		lw $t7, ($t6) 
- 		beq $t7, $zero, find_n
+ move_disc:	add $t6, $a1, 28		#empezar en el top de la torre
+ 		lw $t7, ($t6) 			#guardar valor para chequeo
+ 		beq $t7, $zero, find_n		#si no es cero, seguir buscando
 	 	j cont_mov
- find_n:	addi $t6, $t6, -4
- 		lw $t7, ($t6)
+ find_n:	addi $t6, $t6, -4		#mover el iterador de la torre
+ 		lw $t7, ($t6)			
  		beq $t7, $zero, find_n
  		
- 		
- cont_mov:	sw $zero, ($t6)
- 		add $t6, $a3, 0			#iterate and store values
+ cont_mov:	sw $zero, ($t6)			#eliminar el valor guardado de la torre origen
+ 		add $t6, $a3, 0			
  		lw $t5, ($t6)			#load value of t6 into t5
  		bne $t5, $zero, find_top	#check if its 0, if not keep adding	
  		j cont_mov2			
-find_top:	add $t6, $t6, 4			#move iterator
-		lw $t5, ($t6)			#store value of t6 into t5
-		bne $t5, $zero, find_top	#check if its 0, if not keep adding
+find_top:	add $t6, $t6, 4			#mover el iterador de la torre
+		lw $t5, ($t6)			#guardar valor para chequeo
+		bne $t5, $zero, find_top	#si no es 0, seguir buscando hasta llegar al top
 cont_mov2:	 		
  		sw $t7, ($t6)			#mover disco de origen a destino
  		
