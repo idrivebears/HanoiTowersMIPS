@@ -74,9 +74,10 @@ initTower_1:
  find_n:	addi $t6, $t6, -4
  		lw $t7, ($t6)
  		beq $t7, $zero, find_n
- 		sw $zero, ($t6)
  		
- cont_mov:	add $t6, $a3, 0			#iterate and store values
+ 		
+ cont_mov:	sw $zero, ($t6)
+ 		add $t6, $a3, 0			#iterate and store values
  		lw $t5, ($t6)			#load value of t6 into t5
  		bne $t5, $zero, find_top	#check if its 0, if not keep adding	
  		j cont_mov2			
