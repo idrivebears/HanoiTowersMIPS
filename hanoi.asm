@@ -18,7 +18,7 @@
  		addi $a3, $zero, 64		#inicializar torre3
  
  		addi $sp, $zero, -4		# Inicializacion del stack pointer
-		addi $a0, $zero, 4		# a0 = N
+		addi $a0, $zero, 3		# a0 = N
 		add  $t1, $zero, $a0		# t1 = a0
 		addi $s1, $zero, 1		# s1 = 1
 		addi $t1, $t1, 1		# t1++

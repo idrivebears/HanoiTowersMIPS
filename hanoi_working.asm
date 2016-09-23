@@ -18,7 +18,7 @@
  		addi $a3, $zero, 64		#inicializar torre3
  
  		addi $sp, $zero, -4		# Inicializacion del stack pointer
-		addi $a0, $zero, 2		# a0 = N
+		addi $a0, $zero, 8		# a0 = N
 		add  $t1, $zero, $a0		# t1 = a0
 		addi $s1, $zero, 1		# s1 = 1
 		addi $t1, $t1, 1		# t1++
@@ -84,7 +84,7 @@ find_top:	add $t6, $t6, 4			#move iterator
 		lw $t5, ($t6)			#store value of t6 into t5
 		bne $t5, $zero, find_top	#check if its 0, if not keep adding
 cont_mov2:	 		
- 		sw $t7, ($t6)			#mover disco de origen a destin\o
+ 		sw $t7, ($t6)			#mover disco de origen a destino
  		
  		#hanoi_der
  		#a1 <> a2
